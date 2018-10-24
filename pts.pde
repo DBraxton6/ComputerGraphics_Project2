@@ -166,7 +166,7 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
       {
       
       Q.addPt(B(G[p(i)],G[i],G[n(i)], 1.5)); 
-      Q.addPt(F(G[p(i)], G[i], G[n(i)], G[n(i)], 1.5)); 
+      Q.addPt(F(G[p(i)], G[i], G[n(i)], G[n(i+1)], 1.5)); 
       //...
       }
     return this;
