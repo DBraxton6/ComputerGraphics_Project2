@@ -173,12 +173,13 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
     }     
   
   void displaySkater() {
+      int a,b;
       if(showCurve) {fill(yellow); for (int j=0; j<nv; j++) caplet(G[j],6,G[n(j)],6); }
       pt[] B = new pt [nv];           // geometry table (vertices)
-      //pt[] H = new pt [nv];          //for hip placement
+      pt[] H = new pt [nv];          //for hip placement
       for (int j=0; j<nv; j++) {
         B[j]=P(G[j],V(0,0,-100));
-        //H[j]=P(B[j], V(0,0,100)); 
+        H[j]=P(G[j], V(0,0,100)); 
       }
       if(showPath) {
         fill(lime); for (int j=0; j<nv; j++) caplet(B[j],6,B[n(j)],6);
@@ -195,7 +196,7 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
         
         
         //body and head 
-        //fill(yellow); coneSection(B[f], H[f], 15, 25); // body
+        fill(yellow); coneSection(G[f], H[f], 15, 25); // body
         //fill(yellow); caplet(B[f], 25, H[f], 25); // body
         
         //left side
