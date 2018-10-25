@@ -181,8 +181,8 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
       pt[] B = new pt [nv];           // geometry table (vertices)
       pt[] H = new pt [nv];           //for body placement
       for (int j=0; j<nv; j++) {
-        B[j]=P(G[j],V(0,0,-100));
-        H[j]=P(G[j], V(0,0,100)); 
+        B[j]=P(P(G[j], A(V(G[j], G[n(j)]), V(G[j], G[p(j)]))),V(0,0,-100));
+        H[j]=P(G[j], V(0,0,70)); 
       }
       if(showPath) {
         fill(lime); for (int j=0; j<nv; j++) caplet(B[j],6,B[n(j)],6);
@@ -225,6 +225,7 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
         vec up = V(0, 0, 1);
         vec out = cross(fwrd, up);
         vec normOut = U(out);
+        vec down = cross(fwrd, out);
         
         int num = (f-a) % nv;
         int num2 = (f-b) % nv;
@@ -237,18 +238,18 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
         }
         
         //body and head 
-        fill(yellow); coneSection(G[f], H[f], 15, 25); // body
-        //fill(yellow); caplet(B[f], 25, H[f], 25); // body
+        //fill(yellow); coneSection(G[f], H[f], 15, 25); // body
+        //fill(yellow); cone(H[f], down, 20);
         
         //left side
-        fill(yellow); caplet(P(B[num], 10, normOut), 5, P(G[f], 10, normOut), 10); //left leg
-        fill(yellow); sphere(P(G[f], 10, normOut), 10); //left hip
-        fill(yellow); sphere(P(B[num], 10, normOut), 10); //left foot
+        fill(yellow); caplet(P(B[num], 12, normOut), 5, P(G[f], 12, normOut), 10); //left leg
+        fill(yellow); sphere(P(G[f], 12, normOut), 10); //left hip
+        fill(yellow); sphere(P(B[num], 12, normOut), 10); //left foot
  
         //right side
-        fill(yellow); caplet(P(B[num2], -10, normOut), 5, P(G[f], -10, normOut), 10); //right leg
-        fill(yellow); sphere(P(G[f], -10, normOut), 10); //right hip
-        fill(yellow); sphere(P(B[num2], -10, normOut), 10); //right foot
+        fill(yellow); caplet(P(B[num2], -12, normOut), 5, P(G[f], -12, normOut), 10); //right leg
+        fill(yellow); sphere(P(G[f], -12, normOut), 10); //right hip
+        fill(yellow); sphere(P(B[num2], -12, normOut), 10); //right foot
       }
       else {
         fill(red); arrow(B[f],G[f],20);
