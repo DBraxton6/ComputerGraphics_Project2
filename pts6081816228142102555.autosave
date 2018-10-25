@@ -13,7 +13,7 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
         pp=1; // index of picked vertex
     int a = 0;
     int b = 0;
-    boolean leftMove = true, rightMove = false;
+    boolean leftMove = true, rightMove = false;    
 
   pts() {}
   pts declare() 
@@ -176,10 +176,9 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
     }     
   
   void displaySkater() {
-      
       if(showCurve) {fill(yellow); for (int j=0; j<nv; j++) caplet(G[j],6,G[n(j)],6); }
       pt[] B = new pt [nv];           // geometry table (vertices)
-      pt[] H = new pt [nv];           //for body placement
+      pt[] H = new pt [nv];          //for hip placement
       for (int j=0; j<nv; j++) {
         B[j]=P(G[j],V(0,0,-100));
         H[j]=P(G[j], V(0,0,100)); 
@@ -219,7 +218,8 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
         } else {
           b--;
         }
-      }  
+      } 
+      
       if(showSkater) {
         vec fwrd = V(G[f], G[n(f)]);
         vec up = V(0, 0, 1);
