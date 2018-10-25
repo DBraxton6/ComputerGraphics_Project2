@@ -180,13 +180,14 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
       if(showCurve) {fill(yellow); for (int j=0; j<nv; j++) caplet(G[j],6,G[n(j)],6); }
       pt[] B = new pt [nv];           // geometry table (vertices)
       pt[] H = new pt [nv];           //for body placement
+      pt[] M = new pt [nv];          //for head placement
       for (int j=0; j<nv; j++) {
         B[j]=P(P(G[j], A(V(G[j], G[n(j)]), V(G[j], G[p(j)]))),V(0,0,-100));
-        H[j]=P(G[j], V(0,0,70)); 
+        H[j]=P(G[j], V(0,0,60));
+        M[j]=P(H[j], V(0,0, 35));
       }
       if(showPath) {
         fill(lime); for (int j=0; j<nv; j++) caplet(B[j],6,B[n(j)],6);
-        //fill(lime); for (int j=0; j<nv; j++) caplet(H[j],6,H[n(j)],6);
       } 
       if(showKeys) {fill(cyan); for (int j=0; j<nv; j+=4) arrow(B[j],G[j],3);}
       
@@ -237,9 +238,11 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
           num2=num2+nv;
         }
         
-        //body and head 
-        //fill(yellow); coneSection(G[f], H[f], 15, 25); // body
-        //fill(yellow); cone(H[f], down, 20);
+        //body and head
+        fill(yellow); caplet(G[f], 15, H[f], 20); //body
+        fill(yellow); sphere(H[f], 20); //fill top of body-neck
+        fill(yellow); sphere(G[f], 10); //fill bottom of body-pelvis
+        fill(yellow); sphere(M[f], 15);
         
         //left side
         fill(yellow); caplet(P(B[num], 12, normOut), 5, P(G[f], 12, normOut), 10); //left leg
