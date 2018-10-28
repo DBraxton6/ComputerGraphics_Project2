@@ -14,6 +14,7 @@ void keyPressed()
   if(key=='B') {P.addPt(Of,'b');}
   if(key=='C') {P.addPt(Of,'c');}
   if(key=='k') {showSkater=!showSkater;}
+  if(key=='r') {showCoaster=!showCoaster;}
   if(key=='m') {method=(method+1)%5;}
   if(key=='[') {showControl=!showControl;}
   if(key==']') {showQuads=!showQuads;}

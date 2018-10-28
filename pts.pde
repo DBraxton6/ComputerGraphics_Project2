@@ -254,6 +254,9 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
         fill(yellow); sphere(P(G[f], -12, normOut), 10); //right hip
         fill(yellow); sphere(P(B[num2], -12, normOut), 10); //right foot
       }
+      else if(showCoaster) {
+        fill(blue); block(2, 2, 2, 2, 2, 2, 2);
+      }
       else {
         fill(red); arrow(B[f],G[f],20);
       } //
