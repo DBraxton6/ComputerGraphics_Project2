@@ -229,7 +229,6 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
         vec up = V(0, 0, 1);
         vec out = cross(fwrd, up);
         vec normOut = U(out);
-        vec down = cross(fwrd, out);
         
         int num = (f-a) % nv;
         int num2 = (f-b) % nv;
@@ -245,7 +244,7 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
         fill(yellow); caplet(G[f], 15, H[f], 20); //body
         fill(yellow); sphere(H[f], 20); //fill top of body-neck
         fill(yellow); sphere(G[f], 15); //fill bottom of body-pelvis
-        fill(yellow); sphere(M[f], 15);
+        fill(yellow); sphere(M[f], 15); //head
 
         //left arm
         fill(yellow); sphere(P(S[f], 15, normOut), 10); //left shoulder
