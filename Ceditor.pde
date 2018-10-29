@@ -10,7 +10,8 @@ Boolean
   showCurve=true, 
   showPath=true, 
   showKeys=true, 
-  showSkater=false, 
+  showSkater=false,
+  multiRunners=false,
   scene1=false,
   solidBalls=false,
   showCorrectedKeys=true,
@@ -55,7 +56,7 @@ void draw() {
   for(int i=0; i<level; i++) 
     {
     Q.copyFrom(R); 
-    //if(method==5) {Q.subdivideDemoInto(R);}
+    if(method==5) {Q.subdivideDemoInto(R);}
     if(method==4) {Q.subdivideQuinticInto(R);}
     //if(method==3) {Q.subdivideCubicInto(R); }
     //if(method==2) {Q.subdivideJarekInto(R); }

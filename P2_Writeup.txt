@@ -1,0 +1,15 @@
+Daisha Braxton
+Computer Graphics - Project 2
+
+Project 2 Includes:
+- Code
+	- Quintic bispline division, raised body curve, gui to show/hide
+	and control subdivision level
+	- Property scaled acceleration vectors, foot curve on the floor, GUI to
+	show/hide
+	- Animated body and alternating feet 1/2 the time 
+	- Runner with telescopic legs, body, and head
+	- Two shoulders, arms, and arms sync off phase with feet
+- Images for LOD's
+- Video Demo
+- No extensions!

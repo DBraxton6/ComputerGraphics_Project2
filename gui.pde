@@ -14,6 +14,7 @@ void keyPressed()
   if(key=='B') {P.addPt(Of,'b');}
   if(key=='C') {P.addPt(Of,'c');}
   if(key=='k') {showSkater=!showSkater;}
+  if(key=='r') {multiRunners=!multiRunners;}
   if(key=='m') {method=(method+1)%5;}
   if(key=='[') {showControl=!showControl;}
   if(key==']') {showQuads=!showQuads;}
@@ -105,6 +106,6 @@ void displayFooter()  // Displays help text at the bottom
     scribeFooter(menu,0); 
     }
 
-String title ="Project 2", name ="Daisha Braxton",
+String title ="CS 3451 - Project 2", name ="Daisha Braxton",
        menu="?:help, !:picture, ~:(start/stop)capture, space:rotate, `/wheel:closer, t/T:target, a:anim, #:quit",
-       guide="click&drag:pick&slide on floor, xz/XZ:move/ALL, e:exchange, q/p:copy, l/L:load, w/W:write, \nm:subdivide method, k:showSkater"; // user's guide
+       guide="click&drag:pick&slide on floor, xz/XZ:move/ALL, e:exchange, q/p:copy, l/L:load, w/W:write, \nm:subdivide method, k:show runner"; // user's guide
