@@ -180,20 +180,15 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
       if(showCurve) {fill(yellow); for (int j=0; j<nv; j++) caplet(G[j],6,G[n(j)],6); }
       pt[] B = new pt [nv];           // geometry table (vertices)
       pt[] H = new pt [nv];           // for body placement
-      pt[] M = new pt [nv];           // for head placement
-      pt[] S = new pt [nv];           // for shoulder/arm placement
-      
       for (int j=0; j<nv; j++) {
-        B[j]=P(P(G[j], A(V(G[j], G[n(j)]), V(G[j], G[p(j)]))),V(0,0,-100));
-        H[j]=P(G[j], V(0,0,60));
-        M[j]=P(H[j], V(0,0, 35));
-        S[j]=P(M[j], V(0,0, -35));
+        B[j]=P(G[j],V(0,0,-100));
+        H[j]=P(G[j], V(0,0,100)); 
       }
       if(showPath) {
         fill(lime); for (int j=0; j<nv; j++) caplet(B[j],6,B[n(j)],6);
       } 
       if(showKeys) {fill(cyan); for (int j=0; j<nv; j+=4) arrow(B[j],G[j],3);}
-    
+      
       if(animating) {
         f=n(f);
         
@@ -240,35 +235,18 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
           num2=num2+nv;
         }
         
-        //body and head
-        fill(yellow); caplet(G[f], 15, H[f], 20); //body
-        fill(yellow); sphere(H[f], 20); //fill top of body-neck
-        fill(yellow); sphere(G[f], 15); //fill bottom of body-pelvis
-        fill(yellow); sphere(M[f], 15); //head
-
-        //left arm
-        fill(yellow); sphere(P(S[f], 15, normOut), 10); //left shoulder
-        fill(yellow); caplet(P(G[num2], 15, normOut), 5, P(S[f], 15, normOut), 10); //left arm
-        fill(yellow); sphere(P(G[num2], 15, normOut), 5); //left hand
+        //body and head 
+        fill(yellow); coneSection(G[f], H[f], 15, 25); // body
+        //fill(yellow); caplet(B[f], 25, H[f], 25); // body
         
-        //right arm
-        fill(yellow); sphere(P(S[f], -15, normOut), 10); //left shoulder
-        fill(yellow); caplet(P(G[num], -15, normOut), 5, P(S[f], -15, normOut), 10); //left arm
-        fill(yellow); sphere(P(G[num], -15, normOut), 5); //left hand
-        
-        //right arm
-        fill(yellow); sphere(P(S[f], -15, normOut), 10); //right shoulder
-        fill(yellow); caplet(P(H[f], -15, normOut), 5, P(S[f], -15, normOut), 10); //right arm
-        fill(yellow); sphere(P(H[f], -15, normOut), 5); //right hand
-        
-        //left leg
-        fill(yellow); sphere(P(G[f], 10, normOut), 10); //left hip
+        //left side
         fill(yellow); caplet(P(B[num], 10, normOut), 5, P(G[f], 10, normOut), 10); //left leg
+        fill(yellow); sphere(P(G[f], 10, normOut), 10); //left hip
         fill(yellow); sphere(P(B[num], 10, normOut), 10); //left foot
  
-        //right leg
-        fill(yellow); sphere(P(G[f], -10, normOut), 10); //right hip
+        //right side
         fill(yellow); caplet(P(B[num2], -10, normOut), 5, P(G[f], -10, normOut), 10); //right leg
+        fill(yellow); sphere(P(G[f], -10, normOut), 10); //right hip
         fill(yellow); sphere(P(B[num2], -10, normOut), 10); //right foot
       }
       else {
