@@ -249,8 +249,13 @@ class pts // class for manipulaitng and displaying pointclouds or polyloops in 3
 
         //left arm
         fill(yellow); sphere(P(S[f], 15, normOut), 10); //left shoulder
-        fill(yellow); caplet(P(S[f], 20, normOut), 5, P(H[f], 20, normOut), 10); //left arm
-        fill(yellow); sphere(P(S[f], 20, normOut), 5); //left hand
+        fill(yellow); caplet(P(G[num2], 15, normOut), 5, P(S[f], 15, normOut), 10); //left arm
+        fill(yellow); sphere(P(G[num2], 15, normOut), 5); //left hand
+        
+        //right arm
+        fill(yellow); sphere(P(S[f], -15, normOut), 10); //left shoulder
+        fill(yellow); caplet(P(G[num], -15, normOut), 5, P(S[f], -15, normOut), 10); //left arm
+        fill(yellow); sphere(P(G[num], -15, normOut), 5); //left hand
         
         //right arm
         fill(yellow); sphere(P(S[f], -15, normOut), 10); //right shoulder
