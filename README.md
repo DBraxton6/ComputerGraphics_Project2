@@ -1,6 +1,6 @@
 ﻿# ComputerGraphics_Runner
  
- This program was written in Processing and simulates a walker/runner following a subdivided curve. A video demo is included (Project2_VideoDemo.mp4)
+ This program was written in Processing and simulates a walker/runner animating across a subdivided curve. A video demo is included (Project2_VideoDemo.mp4)
  
  If you are running the code in Processing: 
  
